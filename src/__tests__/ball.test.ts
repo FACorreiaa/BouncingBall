@@ -14,10 +14,14 @@ describe('Numeric ball properties', function() {
   test('should have a valid y position formula', () => {
     expect(ball.py).toEqual(expect.any(Number));
   });
+
+  test('should have a valid speed', () => {
+    expect(ball.speed).toEqual(expect.any(Number));
+  });
 });
 
 describe('Color regular expression', function() {
-  test('should match the hex decimap expression', function() {
+  test('should match the hex decimal expression', function() {
     expect(matchHexColor.test(ball.color)).toBe(true);
   });
 });
