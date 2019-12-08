@@ -78,6 +78,7 @@ export class Ball {
     return Math.random() * (101 - 50) + 50;
   }
 
+  //https://stackoverflow.com/questions/1484506/random-color-generator
   ballColor(): string {
     return (
       '#' + (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6)
