@@ -1,3 +1,5 @@
+import { minusOne, two, dotFive } from '../utils/constants';
+
 /**
  *
  * Properties of the Ball object
@@ -15,7 +17,7 @@
  */
 export class Ball {
   public static readonly acel: number = 2; //aceleration
-  public static readonly t: number = 10; //time
+  public static readonly t: number = 120; //time
   public static readonly randomMaxNumber = 1500;
   public static readonly randomMinNumber = 1;
   constructor(
@@ -62,13 +64,13 @@ export class Ball {
 
   directionX(): number {
     return Math.floor(Math.random() * 2) == 0
-      ? this.getStartingX() * -1
+      ? this.getStartingX() * minusOne
       : this.getStartingX();
   }
 
   directionY(): number {
     return Math.floor(Math.random() * 2) == 0
-      ? -this.getStartingY() * -1
+      ? -this.getStartingY() * minusOne
       : this.getStartingY();
   }
 
@@ -87,14 +89,14 @@ export class Ball {
   }
 
   positionY(): number {
-    return this.y + this.dy + Ball.t - 0.5 * Ball.acel * Ball.t * 2;
+    return this.y + this.dy + Ball.t - dotFive * Ball.acel * Ball.t * 2;
   }
 
   getStartingX(): number {
-    return 2;
+    return two;
   }
 
   getStartingY(): number {
-    return 2 * -1 * Ball.t;
+    return two * minusOne * Ball.t;
   }
 }

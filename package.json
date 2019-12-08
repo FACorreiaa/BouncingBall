@@ -23,6 +23,7 @@
     "@types/webpack": "^4.41.0",
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.1",
+    "file-loader": "^5.0.2",
     "image-webpack-loader": "^6.0.0",
     "jest": "^24.9.0",
     "lite-server": "^2.5.4",

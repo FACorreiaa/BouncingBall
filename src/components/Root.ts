@@ -1,5 +1,5 @@
 import { Ball } from './Ball';
-
+import { minusOne } from '../utils/constants';
 export class Root {
   //root properties
   protected canvas: HTMLCanvasElement;
@@ -8,7 +8,7 @@ export class Root {
   protected ball = new Ball();
 
   constructor(private id: string) {
-    this.canvas = <HTMLCanvasElement>document.getElementById(id);
+    this.canvas = <HTMLCanvasElement>document.getElementById(this.id);
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
 
@@ -40,11 +40,9 @@ export class Root {
   }
 
   /**
-   * @summary There are two lines of code comment
+   * @summary
    * Because I wasn't sure about the ball direction
-   * If you want the ball to run as it is, its correct
-   * If you want the ball in a single line
-   * Uncomment the code inside the if statement
+   * Uncomment comment the code on the if for free ball direction
    */
   updateBall(): void {
     const speed = Root.speedDecrease;
@@ -65,7 +63,8 @@ export class Root {
       (ball.px + ball.size > this.canvas.width && ball.dx > 0)
     ) {
       ball.dx = -ball.dx + speed * ball.dx;
-      //ball.dy = -ball.dy + (speed * ball.dy); //if you want the ball to bounce in a single position
+      //uncomment for linear bounce
+      //ball.dy = ball.dy + speed * ball.dy * minusOne;
     }
 
     if (
@@ -73,7 +72,8 @@ export class Root {
       (ball.py + ball.size > this.canvas.height && ball.dy > 0)
     ) {
       ball.dy = -ball.dy + speed * ball.dy;
-      //ball.dx = -ball.dx + (speed * ball.dx); //if you want the ball to bounce in a single position
+      //uncomment for linear bounce
+      /* ball.dx = ball.dx + speed * ball.dx * minusOne; */
     }
 
     this.drawRoot();

@@ -8,9 +8,6 @@ module.exports = {
     filename: './js/bundle.js'
   },
   devtool: 'source-map',
-  resolve: {
-    extensions: ['*', '.ts', '.tsx', '.js']
-  },
   module: {
     rules: [
       {
@@ -23,15 +20,45 @@ module.exports = {
         use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/,
+        test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
+          'file-loader',
           {
-            loader: 'url-loader',
-            options: { limit: 40000 }
-          },
-          'image-webpack-loader'
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false
+              },
+              webp: {
+                quality: 75
+              }
+            }
+          }
         ]
       }
+      ///...
+    ]
+  },
+  resolve: {
+    extensions: [
+      '.ts',
+      '.tsx',
+      '.js',
+      '.jsx',
+      '.scss',
+      '.gif',
+      '.png',
+      '.jpg',
+      '.jpeg',
+      '.svg'
     ]
   },
   plugins: [
