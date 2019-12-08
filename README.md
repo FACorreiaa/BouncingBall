@@ -36,6 +36,10 @@ Bootstrap
 Jquery
 Jest
 
+# Issues
+
+clicking on the screen will add values to the ball properties. To be fixed on future version
+
 # Authors
 
 fernandocorreia316@gmail.com

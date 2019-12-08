@@ -4,9 +4,9 @@
   "warnings": [
   ],
   "version": "4.41.2",
-  "hash": "3d3fbf9617f1d0a31c19",
-  "time": 1411,
-  "builtAt": 1575831612315,
+  "hash": "e22557f6722fb7252c81",
+  "time": 547,
+  "builtAt": 1575832597650,
   "publicPath": "",
   "outputPath": "/home/fernando/Documentos/Projects/Prozis_V4/dist",
   "assetsByChunkName": {
@@ -80,7 +80,7 @@
       "files": [
         "./js/bundle.js"
       ],
-      "hash": "72facfd0d01381237a68",
+      "hash": "2e0cc1e0fe9cece907e2",
       "siblings": [
       ],
       "parents": [
@@ -679,7 +679,7 @@
           "name": "index.html",
           "size": 1433280,
           "chunks": [
-            0
+            1
           ],
           "chunkNames": [
           ],
@@ -692,7 +692,7 @@
       "entrypoints": {
         "undefined": {
           "chunks": [
-            0
+            1
           ],
           "assets": [
             "index.html"
@@ -706,7 +706,7 @@
       "namedChunkGroups": {
         "undefined": {
           "chunks": [
-            0
+            1
           ],
           "assets": [
             "index.html"
@@ -719,7 +719,7 @@
       },
       "chunks": [
         {
-          "id": 0,
+          "id": 1,
           "rendered": true,
           "initial": true,
           "entry": true,
@@ -729,7 +729,7 @@
           "files": [
             "index.html"
           ],
-          "hash": "fbf95cad1ba33d60f04d",
+          "hash": "81c21c45689c38e1b554",
           "siblings": [
           ],
           "parents": [
@@ -751,7 +751,7 @@
               "optional": false,
               "prefetched": false,
               "chunks": [
-                0
+                1
               ],
               "issuer": null,
               "issuerId": null,
@@ -786,11 +786,11 @@
               "index2": 2,
               "size": 540512,
               "cacheable": true,
-              "built": true,
+              "built": false,
               "optional": false,
               "prefetched": false,
               "chunks": [
-                0
+                1
               ],
               "issuer": "/home/fernando/Documentos/Projects/Prozis_V4/node_modules/html-webpack-plugin/lib/loader.js!/home/fernando/Documentos/Projects/Prozis_V4/index.html",
               "issuerId": "./node_modules/html-webpack-plugin/lib/loader.js!./index.html",
@@ -832,11 +832,11 @@
               "index2": 0,
               "size": 472,
               "cacheable": true,
-              "built": true,
+              "built": false,
               "optional": false,
               "prefetched": false,
               "chunks": [
-                0
+                1
               ],
               "issuer": "/home/fernando/Documentos/Projects/Prozis_V4/node_modules/lodash/lodash.js",
               "issuerId": "./node_modules/lodash/lodash.js",
@@ -883,11 +883,11 @@
               "index2": 1,
               "size": 497,
               "cacheable": true,
-              "built": true,
+              "built": false,
               "optional": false,
               "prefetched": false,
               "chunks": [
-                0
+                1
               ],
               "issuer": "/home/fernando/Documentos/Projects/Prozis_V4/node_modules/lodash/lodash.js",
               "issuerId": "./node_modules/lodash/lodash.js",
@@ -954,7 +954,7 @@
           "optional": false,
           "prefetched": false,
           "chunks": [
-            0
+            1
           ],
           "issuer": null,
           "issuerId": null,
@@ -989,11 +989,11 @@
           "index2": 2,
           "size": 540512,
           "cacheable": true,
-          "built": true,
+          "built": false,
           "optional": false,
           "prefetched": false,
           "chunks": [
-            0
+            1
           ],
           "issuer": "/home/fernando/Documentos/Projects/Prozis_V4/node_modules/html-webpack-plugin/lib/loader.js!/home/fernando/Documentos/Projects/Prozis_V4/index.html",
           "issuerId": "./node_modules/html-webpack-plugin/lib/loader.js!./index.html",
@@ -1035,11 +1035,11 @@
           "index2": 0,
           "size": 472,
           "cacheable": true,
-          "built": true,
+          "built": false,
           "optional": false,
           "prefetched": false,
           "chunks": [
-            0
+            1
           ],
           "issuer": "/home/fernando/Documentos/Projects/Prozis_V4/node_modules/lodash/lodash.js",
           "issuerId": "./node_modules/lodash/lodash.js",
@@ -1086,11 +1086,11 @@
           "index2": 1,
           "size": 497,
           "cacheable": true,
-          "built": true,
+          "built": false,
           "optional": false,
           "prefetched": false,
           "chunks": [
-            0
+            1
           ],
           "issuer": "/home/fernando/Documentos/Projects/Prozis_V4/node_modules/lodash/lodash.js",
           "issuerId": "./node_modules/lodash/lodash.js",
