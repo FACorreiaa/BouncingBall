@@ -4,9 +4,9 @@
   "warnings": [
   ],
   "version": "4.41.2",
-  "hash": "6cc1afb79035392d6fe7",
-  "time": 1557,
-  "builtAt": 1575792440979,
+  "hash": "1b081b77753e22d40736",
+  "time": 1616,
+  "builtAt": 1575794826461,
   "publicPath": "",
   "outputPath": "/home/fernando/Documentos/Projects/Prozis_V4/dist",
   "assetsByChunkName": {
@@ -18,7 +18,7 @@
   "assets": [
     {
       "name": "./js/bundle.js",
-      "size": 3186,
+      "size": 3161,
       "chunks": [
         0
       ],
@@ -31,7 +31,7 @@
     },
     {
       "name": "./js/bundle.js.map",
-      "size": 4922,
+      "size": 4874,
       "chunks": [
         0
       ],
@@ -45,7 +45,7 @@
     },
     {
       "name": "index.html",
-      "size": 2324,
+      "size": 2446,
       "chunks": [
       ],
       "chunkNames": [
@@ -92,7 +92,7 @@
       "rendered": true,
       "initial": true,
       "entry": true,
-      "size": 4579,
+      "size": 5004,
       "names": [
         "main"
       ],
@@ -100,7 +100,7 @@
         "./js/bundle.js",
         "./js/bundle.js.map"
       ],
-      "hash": "1de48892c94b9a8e8e45",
+      "hash": "00eef0eae7be3537ee8c",
       "siblings": [
       ],
       "parents": [
@@ -116,7 +116,7 @@
           "name": "./src/index.ts + 2 modules",
           "index": 0,
           "index2": 2,
-          "size": 4579,
+          "size": 5004,
           "cacheable": true,
           "built": true,
           "optional": false,
@@ -199,7 +199,7 @@
               "name": "./src/components/Root.ts",
               "index": 1,
               "index2": 1,
-              "size": 2198,
+              "size": 2467,
               "cacheable": true,
               "built": true,
               "optional": false,
@@ -250,7 +250,7 @@
               "optimizationBailout": [
               ],
               "depth": 1,
-              "source": "import { Ball } from \"./Ball\";\nexport class Root {\n    constructor(id) {\n        this.id = id;\n        this.backgroundColor = \"#faf4b4\";\n        this.ball = new Ball();\n        debugger;\n        this.canvas = document.getElementById(id);\n        console.log(this.canvas);\n        this.canvas.width = window.innerWidth;\n        this.canvas.height = window.innerHeight;\n        window.addEventListener('resize', () => this.resizeCanvas(), false);\n    }\n    context() {\n        return this.canvas.getContext('2d');\n    }\n    //we need to call this when creating the ball\n    //otherwise the screen width and height wont be resized to screen size\n    resizeCanvas() {\n        this.canvas.width = window.innerWidth;\n        this.canvas.height = window.innerHeight;\n    }\n    start() {\n        this.updateBall();\n        requestAnimationFrame(() => this.start());\n    }\n    drawRoot() {\n        let ctx = this.context();\n        ctx.fillStyle = this.backgroundColor;\n        ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);\n    }\n    /**\n     *\n     */\n    updateBall() {\n        const speed = Root.speedDecrease;\n        const ball = this.ball;\n        let ctx = this.context();\n        //move ball\n        //hits the wall\n        //turns around\n        ball.px += ball.dx;\n        ball.py += ball.dy;\n        /**\n         * @formulas to hit the wall and turn around\n         */\n        if (ball.px - ball.size < 0 && ball.dx < 0 || ball.px + ball.size > this.canvas.width && ball.dx > 0) {\n            ball.dx = -ball.dx + (speed * ball.dx);\n            //ball.dy = -ball.dy + (speed * ball.dy); //if you want the ball to bounce in a single position\n        }\n        if (ball.py - ball.size < 0 && ball.dy < 0 || ball.py + ball.size > this.canvas.height && ball.dy > 0) {\n            ball.dy = -ball.dy + (speed * ball.dy);\n            //ball.dx = -ball.dx + (speed * ball.dx); //if you want the ball to bounce in a single position\n        }\n        this.drawRoot();\n        ctx.beginPath();\n        ctx.fillStyle = ball.color;\n        ctx.arc(ball.px, ball.py, ball.size, 0, 2 * Math.PI);\n        ctx.fill();\n        ctx.stroke();\n    }\n}\nRoot.speedDecrease = 0.1; //ten percent less speed\n"
+              "source": "import { Ball } from './Ball';\nexport class Root {\n    constructor(id) {\n        this.id = id;\n        this.backgroundColor = '#faf4b4';\n        this.ball = new Ball();\n        this.canvas = document.getElementById(id);\n        this.canvas.width = window.innerWidth;\n        this.canvas.height = window.innerHeight;\n        window.addEventListener('resize', () => this.resizeCanvas(), false);\n    }\n    //2d context\n    context() {\n        return this.canvas.getContext('2d');\n    }\n    //we need to call this when creating the ball\n    //otherwise the screen width and height wont be resized to screen size\n    resizeCanvas() {\n        this.canvas.width = window.innerWidth;\n        this.canvas.height = window.innerHeight;\n    }\n    start() {\n        this.updateBall();\n        requestAnimationFrame(() => this.start());\n    }\n    //draw canvas screen\n    drawRoot() {\n        let ctx = this.context();\n        ctx.fillStyle = this.backgroundColor;\n        ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);\n    }\n    /**\n     * @summary There are two lines of code comment\n     * Because I wasn't sure about the ball direction\n     * If you want the ball to run as it is, its correct\n     * If you want the ball in a single line\n     * Uncomment the code inside the if statement\n     */\n    updateBall() {\n        const speed = Root.speedDecrease;\n        const ball = this.ball;\n        let ctx = this.context();\n        //move ball\n        //hits the wall\n        //turns around\n        ball.px += ball.dx;\n        ball.py += ball.dy;\n        /**\n         * @formulas to hit the wall and turn around\n         */\n        if ((ball.px - ball.size < 0 && ball.dx < 0) ||\n            (ball.px + ball.size > this.canvas.width && ball.dx > 0)) {\n            ball.dx = -ball.dx + speed * ball.dx;\n            //ball.dy = -ball.dy + (speed * ball.dy); //if you want the ball to bounce in a single position\n        }\n        if ((ball.py - ball.size < 0 && ball.dy < 0) ||\n            (ball.py + ball.size > this.canvas.height && ball.dy > 0)) {\n            ball.dy = -ball.dy + speed * ball.dy;\n            //ball.dx = -ball.dx + (speed * ball.dx); //if you want the ball to bounce in a single position\n        }\n        this.drawRoot();\n        ctx.beginPath();\n        ctx.fillStyle = ball.color;\n        ctx.arc(ball.px, ball.py, ball.size, 0, 2 * Math.PI);\n        ctx.fill();\n        ctx.stroke();\n    }\n}\nRoot.speedDecrease = 0.1; //ten percent less speed\n"
             },
             {
               "id": null,
@@ -258,7 +258,7 @@
               "name": "./src/components/Ball.ts",
               "index": 2,
               "index2": 0,
-              "size": 2199,
+              "size": 2355,
               "cacheable": true,
               "built": true,
               "optional": false,
@@ -314,7 +314,7 @@
               "optimizationBailout": [
               ],
               "depth": 2,
-              "source": "/**\n *\n * Properties of the Ball object\n * @param a\n * @param t\n * @param px\n * @param py\n * @param dx\n * @param dy\n * @param size\n * @param color\n * @param speed\n */\nexport class Ball {\n    constructor(x = 0, y = 0, dx = 0, dy = 0, px = 0, py = 0, size = 0, color = '', speed = 0) {\n        this.x = x;\n        this.y = y;\n        this.dx = dx;\n        this.dy = dy;\n        this.px = px;\n        this.py = py;\n        this.size = size;\n        this.color = color;\n        this.speed = speed;\n        this.x = this.startingX();\n        this.y = this.startingY();\n        this.dx = this.directionX();\n        this.dy = this.directionY();\n        this.px = this.positionX();\n        this.py = this.positionY();\n        this.speed = this.getSpeed(Ball.t);\n        this.size = this.ballSize();\n        this.color = this.ballColor();\n    }\n    startingX() {\n        return Math.floor(Math.random() * Ball.randomMaxNumber) + Ball.randomMinNumber;\n    }\n    startingY() {\n        return Math.floor(Math.random() * Ball.randomMaxNumber) + Ball.randomMinNumber;\n    }\n    /**\n     *\n     * @param t\n     * @returns\n     */\n    getSpeed(t) {\n        return Math.floor(Math.random() * 76 + 25) / Ball.t;\n    }\n    /**\n     * @returns\n     */\n    directionX() {\n        return (Math.floor(Math.random() * 2) == 0) ? (this.getStartingX()) * -1 : this.getStartingX();\n    }\n    /**\n     * @returns\n     */\n    directionY() {\n        return (Math.floor(Math.random() * 2) == 0) ? -(this.getStartingY()) * -1 : this.getStartingY();\n    }\n    /**\n     * @returns\n     */\n    ballSize() {\n        return (Math.random() * (101 - 50) + 50);\n    }\n    /**\n     * @returns\n     */\n    ballColor() {\n        return '#' + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);\n    }\n    //position formulas\n    positionX() {\n        return (this.x + this.dx * Ball.t);\n    }\n    positionY() {\n        return (this.y + this.dy + Ball.t - 0.5 * Ball.acel * Ball.t * 2);\n    }\n    //speed formulas\n    getStartingX() {\n        return 2;\n    }\n    getStartingY() {\n        return (2 * (-1)) * Ball.t;\n    }\n}\nBall.acel = 2; //aceleration\nBall.t = 10; //time\nBall.randomMaxNumber = 1500;\nBall.randomMinNumber = 1;\n"
+              "source": "/**\n *\n * Properties of the Ball object\n * @param x - random starting x\n * @param y - random starting y\n * @param a - accelaration\n * @param t - time\n * @param px - formula of x position over time\n * @param py - formula of y position over time\n * @param dx - formula of speed x over time\n * @param dy - formula of speed y over time\n * @param size - random circle size\n * @param color - random circle color\n * @param speed - ball speed\n */\nexport class Ball {\n    constructor(x = 0, y = 0, dx = 0, dy = 0, px = 0, py = 0, size = 0, color = '', speed = 0) {\n        this.x = x;\n        this.y = y;\n        this.dx = dx;\n        this.dy = dy;\n        this.px = px;\n        this.py = py;\n        this.size = size;\n        this.color = color;\n        this.speed = speed;\n        this.x = this.startingX();\n        this.y = this.startingY();\n        this.dx = this.directionX();\n        this.dy = this.directionY();\n        this.px = this.positionX();\n        this.py = this.positionY();\n        this.speed = this.getSpeed(Ball.t);\n        this.size = this.ballSize();\n        this.color = this.ballColor();\n    }\n    startingX() {\n        return (Math.floor(Math.random() * Ball.randomMaxNumber) + Ball.randomMinNumber);\n    }\n    startingY() {\n        return (Math.floor(Math.random() * Ball.randomMaxNumber) + Ball.randomMinNumber);\n    }\n    /**\n     *\n     * @param t\n     * @returns speed between 75 and t\n     */\n    getSpeed(t) {\n        return Math.floor(Math.random() * 76 + 25) / Ball.t;\n    }\n    directionX() {\n        return Math.floor(Math.random() * 2) == 0\n            ? this.getStartingX() * -1\n            : this.getStartingX();\n    }\n    directionY() {\n        return Math.floor(Math.random() * 2) == 0\n            ? -this.getStartingY() * -1\n            : this.getStartingY();\n    }\n    ballSize() {\n        return Math.random() * (101 - 50) + 50;\n    }\n    ballColor() {\n        return ('#' + (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6));\n    }\n    positionX() {\n        return this.x + this.dx * Ball.t;\n    }\n    positionY() {\n        return this.y + this.dy + Ball.t - 0.5 * Ball.acel * Ball.t * 2;\n    }\n    getStartingX() {\n        return 2;\n    }\n    getStartingY() {\n        return 2 * -1 * Ball.t;\n    }\n}\nBall.acel = 2; //aceleration\nBall.t = 10; //time\nBall.randomMaxNumber = 1500;\nBall.randomMinNumber = 1;\n"
             }
           ],
           "filteredModules": 0
@@ -341,7 +341,7 @@
       "name": "./src/index.ts + 2 modules",
       "index": 0,
       "index2": 2,
-      "size": 4579,
+      "size": 5004,
       "cacheable": true,
       "built": true,
       "optional": false,
@@ -424,7 +424,7 @@
           "name": "./src/components/Root.ts",
           "index": 1,
           "index2": 1,
-          "size": 2198,
+          "size": 2467,
           "cacheable": true,
           "built": true,
           "optional": false,
@@ -475,7 +475,7 @@
           "optimizationBailout": [
           ],
           "depth": 1,
-          "source": "import { Ball } from \"./Ball\";\nexport class Root {\n    constructor(id) {\n        this.id = id;\n        this.backgroundColor = \"#faf4b4\";\n        this.ball = new Ball();\n        debugger;\n        this.canvas = document.getElementById(id);\n        console.log(this.canvas);\n        this.canvas.width = window.innerWidth;\n        this.canvas.height = window.innerHeight;\n        window.addEventListener('resize', () => this.resizeCanvas(), false);\n    }\n    context() {\n        return this.canvas.getContext('2d');\n    }\n    //we need to call this when creating the ball\n    //otherwise the screen width and height wont be resized to screen size\n    resizeCanvas() {\n        this.canvas.width = window.innerWidth;\n        this.canvas.height = window.innerHeight;\n    }\n    start() {\n        this.updateBall();\n        requestAnimationFrame(() => this.start());\n    }\n    drawRoot() {\n        let ctx = this.context();\n        ctx.fillStyle = this.backgroundColor;\n        ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);\n    }\n    /**\n     *\n     */\n    updateBall() {\n        const speed = Root.speedDecrease;\n        const ball = this.ball;\n        let ctx = this.context();\n        //move ball\n        //hits the wall\n        //turns around\n        ball.px += ball.dx;\n        ball.py += ball.dy;\n        /**\n         * @formulas to hit the wall and turn around\n         */\n        if (ball.px - ball.size < 0 && ball.dx < 0 || ball.px + ball.size > this.canvas.width && ball.dx > 0) {\n            ball.dx = -ball.dx + (speed * ball.dx);\n            //ball.dy = -ball.dy + (speed * ball.dy); //if you want the ball to bounce in a single position\n        }\n        if (ball.py - ball.size < 0 && ball.dy < 0 || ball.py + ball.size > this.canvas.height && ball.dy > 0) {\n            ball.dy = -ball.dy + (speed * ball.dy);\n            //ball.dx = -ball.dx + (speed * ball.dx); //if you want the ball to bounce in a single position\n        }\n        this.drawRoot();\n        ctx.beginPath();\n        ctx.fillStyle = ball.color;\n        ctx.arc(ball.px, ball.py, ball.size, 0, 2 * Math.PI);\n        ctx.fill();\n        ctx.stroke();\n    }\n}\nRoot.speedDecrease = 0.1; //ten percent less speed\n"
+          "source": "import { Ball } from './Ball';\nexport class Root {\n    constructor(id) {\n        this.id = id;\n        this.backgroundColor = '#faf4b4';\n        this.ball = new Ball();\n        this.canvas = document.getElementById(id);\n        this.canvas.width = window.innerWidth;\n        this.canvas.height = window.innerHeight;\n        window.addEventListener('resize', () => this.resizeCanvas(), false);\n    }\n    //2d context\n    context() {\n        return this.canvas.getContext('2d');\n    }\n    //we need to call this when creating the ball\n    //otherwise the screen width and height wont be resized to screen size\n    resizeCanvas() {\n        this.canvas.width = window.innerWidth;\n        this.canvas.height = window.innerHeight;\n    }\n    start() {\n        this.updateBall();\n        requestAnimationFrame(() => this.start());\n    }\n    //draw canvas screen\n    drawRoot() {\n        let ctx = this.context();\n        ctx.fillStyle = this.backgroundColor;\n        ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);\n    }\n    /**\n     * @summary There are two lines of code comment\n     * Because I wasn't sure about the ball direction\n     * If you want the ball to run as it is, its correct\n     * If you want the ball in a single line\n     * Uncomment the code inside the if statement\n     */\n    updateBall() {\n        const speed = Root.speedDecrease;\n        const ball = this.ball;\n        let ctx = this.context();\n        //move ball\n        //hits the wall\n        //turns around\n        ball.px += ball.dx;\n        ball.py += ball.dy;\n        /**\n         * @formulas to hit the wall and turn around\n         */\n        if ((ball.px - ball.size < 0 && ball.dx < 0) ||\n            (ball.px + ball.size > this.canvas.width && ball.dx > 0)) {\n            ball.dx = -ball.dx + speed * ball.dx;\n            //ball.dy = -ball.dy + (speed * ball.dy); //if you want the ball to bounce in a single position\n        }\n        if ((ball.py - ball.size < 0 && ball.dy < 0) ||\n            (ball.py + ball.size > this.canvas.height && ball.dy > 0)) {\n            ball.dy = -ball.dy + speed * ball.dy;\n            //ball.dx = -ball.dx + (speed * ball.dx); //if you want the ball to bounce in a single position\n        }\n        this.drawRoot();\n        ctx.beginPath();\n        ctx.fillStyle = ball.color;\n        ctx.arc(ball.px, ball.py, ball.size, 0, 2 * Math.PI);\n        ctx.fill();\n        ctx.stroke();\n    }\n}\nRoot.speedDecrease = 0.1; //ten percent less speed\n"
         },
         {
           "id": null,
@@ -483,7 +483,7 @@
           "name": "./src/components/Ball.ts",
           "index": 2,
           "index2": 0,
-          "size": 2199,
+          "size": 2355,
           "cacheable": true,
           "built": true,
           "optional": false,
@@ -539,7 +539,7 @@
           "optimizationBailout": [
           ],
           "depth": 2,
-          "source": "/**\n *\n * Properties of the Ball object\n * @param a\n * @param t\n * @param px\n * @param py\n * @param dx\n * @param dy\n * @param size\n * @param color\n * @param speed\n */\nexport class Ball {\n    constructor(x = 0, y = 0, dx = 0, dy = 0, px = 0, py = 0, size = 0, color = '', speed = 0) {\n        this.x = x;\n        this.y = y;\n        this.dx = dx;\n        this.dy = dy;\n        this.px = px;\n        this.py = py;\n        this.size = size;\n        this.color = color;\n        this.speed = speed;\n        this.x = this.startingX();\n        this.y = this.startingY();\n        this.dx = this.directionX();\n        this.dy = this.directionY();\n        this.px = this.positionX();\n        this.py = this.positionY();\n        this.speed = this.getSpeed(Ball.t);\n        this.size = this.ballSize();\n        this.color = this.ballColor();\n    }\n    startingX() {\n        return Math.floor(Math.random() * Ball.randomMaxNumber) + Ball.randomMinNumber;\n    }\n    startingY() {\n        return Math.floor(Math.random() * Ball.randomMaxNumber) + Ball.randomMinNumber;\n    }\n    /**\n     *\n     * @param t\n     * @returns\n     */\n    getSpeed(t) {\n        return Math.floor(Math.random() * 76 + 25) / Ball.t;\n    }\n    /**\n     * @returns\n     */\n    directionX() {\n        return (Math.floor(Math.random() * 2) == 0) ? (this.getStartingX()) * -1 : this.getStartingX();\n    }\n    /**\n     * @returns\n     */\n    directionY() {\n        return (Math.floor(Math.random() * 2) == 0) ? -(this.getStartingY()) * -1 : this.getStartingY();\n    }\n    /**\n     * @returns\n     */\n    ballSize() {\n        return (Math.random() * (101 - 50) + 50);\n    }\n    /**\n     * @returns\n     */\n    ballColor() {\n        return '#' + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);\n    }\n    //position formulas\n    positionX() {\n        return (this.x + this.dx * Ball.t);\n    }\n    positionY() {\n        return (this.y + this.dy + Ball.t - 0.5 * Ball.acel * Ball.t * 2);\n    }\n    //speed formulas\n    getStartingX() {\n        return 2;\n    }\n    getStartingY() {\n        return (2 * (-1)) * Ball.t;\n    }\n}\nBall.acel = 2; //aceleration\nBall.t = 10; //time\nBall.randomMaxNumber = 1500;\nBall.randomMinNumber = 1;\n"
+          "source": "/**\n *\n * Properties of the Ball object\n * @param x - random starting x\n * @param y - random starting y\n * @param a - accelaration\n * @param t - time\n * @param px - formula of x position over time\n * @param py - formula of y position over time\n * @param dx - formula of speed x over time\n * @param dy - formula of speed y over time\n * @param size - random circle size\n * @param color - random circle color\n * @param speed - ball speed\n */\nexport class Ball {\n    constructor(x = 0, y = 0, dx = 0, dy = 0, px = 0, py = 0, size = 0, color = '', speed = 0) {\n        this.x = x;\n        this.y = y;\n        this.dx = dx;\n        this.dy = dy;\n        this.px = px;\n        this.py = py;\n        this.size = size;\n        this.color = color;\n        this.speed = speed;\n        this.x = this.startingX();\n        this.y = this.startingY();\n        this.dx = this.directionX();\n        this.dy = this.directionY();\n        this.px = this.positionX();\n        this.py = this.positionY();\n        this.speed = this.getSpeed(Ball.t);\n        this.size = this.ballSize();\n        this.color = this.ballColor();\n    }\n    startingX() {\n        return (Math.floor(Math.random() * Ball.randomMaxNumber) + Ball.randomMinNumber);\n    }\n    startingY() {\n        return (Math.floor(Math.random() * Ball.randomMaxNumber) + Ball.randomMinNumber);\n    }\n    /**\n     *\n     * @param t\n     * @returns speed between 75 and t\n     */\n    getSpeed(t) {\n        return Math.floor(Math.random() * 76 + 25) / Ball.t;\n    }\n    directionX() {\n        return Math.floor(Math.random() * 2) == 0\n            ? this.getStartingX() * -1\n            : this.getStartingX();\n    }\n    directionY() {\n        return Math.floor(Math.random() * 2) == 0\n            ? -this.getStartingY() * -1\n            : this.getStartingY();\n    }\n    ballSize() {\n        return Math.random() * (101 - 50) + 50;\n    }\n    ballColor() {\n        return ('#' + (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6));\n    }\n    positionX() {\n        return this.x + this.dx * Ball.t;\n    }\n    positionY() {\n        return this.y + this.dy + Ball.t - 0.5 * Ball.acel * Ball.t * 2;\n    }\n    getStartingX() {\n        return 2;\n    }\n    getStartingY() {\n        return 2 * -1 * Ball.t;\n    }\n}\nBall.acel = 2; //aceleration\nBall.t = 10; //time\nBall.randomMaxNumber = 1500;\nBall.randomMinNumber = 1;\n"
         }
       ],
       "filteredModules": 0
@@ -567,7 +567,7 @@
       "assets": [
         {
           "name": "index.html",
-          "size": 547953,
+          "size": 548075,
           "chunks": [
             0
           ],
@@ -613,13 +613,13 @@
           "rendered": true,
           "initial": true,
           "entry": true,
-          "size": 544002,
+          "size": 544124,
           "names": [
           ],
           "files": [
             "index.html"
           ],
-          "hash": "2982ec8fc37549f1f7f6",
+          "hash": "78b038ae91a40867f2c4",
           "siblings": [
           ],
           "parents": [
@@ -635,7 +635,7 @@
               "name": "./node_modules/html-webpack-plugin/lib/loader.js!./index.html",
               "index": 0,
               "index2": 3,
-              "size": 2521,
+              "size": 2643,
               "cacheable": true,
               "built": true,
               "optional": false,
@@ -668,7 +668,7 @@
                 "ModuleConcatenation bailout: Module is not an ECMAScript module"
               ],
               "depth": 0,
-              "source": "var _ = require(\"!!./node_modules/lodash/lodash.js\");module.exports = function (templateParams) { with(templateParams) {return (function(data) {\nvar __t, __p = '';\n__p += '<!DOCTYPE html>\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\\n    <title>Bouncing Ball</title>\\n    <meta name=\"description\" content=\"\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\\n    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js\"></script>\\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\">\\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"src/styles/styles.css\">\\n  </head>\\n  <body id=\"bounce\">\\n    <!--[if lt IE 7]>\\n      <p class=\"browsehappy\">You are using an <strong>outdated</strong> browser. Please <a href=\"#\">upgrade your browser</a> to improve your experience.</p>\\n    <![endif]-->\\n  \\n    <!--Bootstrap modal-->\\n  <div class=\"modal\" tabindex=\"-1\" role=\"dialog\" onLoad=\"init();\" id=\"modal\">\\n  <div class=\"modal-dialog\" role=\"document\">\\n    <div class=\"modal-content\">\\n      <div class=\"modal-header\">\\n        <h5 class=\"modal-title\">Exceed Yourself</h5>\\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\\n          <span aria-hidden=\"true\">&times;</span>\\n        </button>\\n      </div>\\n      <div class=\"modal-body\">\\n        <div class=\"content\">\\n          <div class=\"row\">\\n            <div class=\"col\">\\n                <img src=\"src/assets/img/prozis.jpeg\" />\\n            </div>\\n            <div class=\"col\">\\n                <p>A ball will start to bounce when you close this modal</p>\\n                <p>Hope you enjoy it!</p>\\n                <strong>Fernando Correia</strong>\\n            </div>\\n          </div>\\n        </div>\\n        \\n      </div>\\n      <div class=\"modal-footer\">\\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\\n      </div>\\n    </div>\\n  </div>\\n</div>\\n    <!--creating a dedicated area to our ball to bounce -->\\n    <canvas id=\"canvas\">\\n    <div id=\"bounce\"></div>\\n    <script type=\"text/javascript\">\\n      $(window).on(\\'load\\',function(){\\n          $(\\'#modal\\').modal(\\'show\\');\\n      });\\n    </script>\\n    <script src=\"./dist/js/bundle.js\"></script>\\n    </canvas>   \\n  </body>\\n</html>';\nreturn __p\n})();}}"
+              "source": "var _ = require(\"!!./node_modules/lodash/lodash.js\");module.exports = function (templateParams) { with(templateParams) {return (function(data) {\nvar __t, __p = '';\n__p += '<!DOCTYPE html>\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\\n    <title>Bouncing Ball</title>\\n    <meta name=\"description\" content=\"\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\\n    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js\"></script>\\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\">\\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"src/styles/styles.css\">\\n  </head>\\n  <body id=\"bounce\">\\n    <!--[if lt IE 7]>\\n      <p class=\"browsehappy\">You are using an <strong>outdated</strong> browser. Please <a href=\"#\">upgrade your browser</a> to improve your experience.</p>\\n    <![endif]-->\\n  \\n      <!--Bootstrap modal-->\\n      <div class=\"modal\" tabindex=\"-1\" role=\"dialog\" onLoad=\"init();\" id=\"modal\">\\n      <div class=\"modal-dialog\" role=\"document\">\\n        <div class=\"modal-content\">\\n          <div class=\"modal-header\">\\n            <h5 class=\"modal-title\">Exceed Yourself</h5>\\n            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\\n              <span aria-hidden=\"true\">&times;</span>\\n            </button>\\n          </div>\\n          <div class=\"modal-body\">\\n            <div class=\"content\">\\n              <div class=\"row\">\\n                <div class=\"col\">\\n                    <img src=\"src/assets/img/prozis.jpeg\" />\\n                </div>\\n                <div class=\"col\">\\n                    <p>A ball will start to bounce when you close this modal</p>\\n                    <p>Hope you enjoy it!</p>\\n                    <strong>Fernando Correia</strong>\\n                </div>\\n              </div>\\n            </div>\\n            \\n          </div>\\n          <div class=\"modal-footer\">\\n            <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\\n          </div>\\n        </div>\\n      </div>\\n    </div>\\n    <!--creating a dedicated area to our ball to bounce -->\\n    <canvas id=\"canvas\">\\n    <div id=\"bounce\"></div>\\n    </canvas>   \\n    <script type=\"text/javascript\">\\n      $(window).on(\\'load\\',function(){\\n          $(\\'#modal\\').modal(\\'show\\');\\n      });\\n    </script>\\n    <script src=\"./dist/js/bundle.js\"></script>\\n  </body>\\n</html>';\nreturn __p\n})();}}"
             },
             {
               "id": 1,
@@ -846,7 +846,7 @@
           "name": "./node_modules/html-webpack-plugin/lib/loader.js!./index.html",
           "index": 0,
           "index2": 3,
-          "size": 2521,
+          "size": 2643,
           "cacheable": true,
           "built": true,
           "optional": false,
@@ -879,7 +879,7 @@
             "ModuleConcatenation bailout: Module is not an ECMAScript module"
           ],
           "depth": 0,
-          "source": "var _ = require(\"!!./node_modules/lodash/lodash.js\");module.exports = function (templateParams) { with(templateParams) {return (function(data) {\nvar __t, __p = '';\n__p += '<!DOCTYPE html>\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\\n    <title>Bouncing Ball</title>\\n    <meta name=\"description\" content=\"\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\\n    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js\"></script>\\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\">\\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"src/styles/styles.css\">\\n  </head>\\n  <body id=\"bounce\">\\n    <!--[if lt IE 7]>\\n      <p class=\"browsehappy\">You are using an <strong>outdated</strong> browser. Please <a href=\"#\">upgrade your browser</a> to improve your experience.</p>\\n    <![endif]-->\\n  \\n    <!--Bootstrap modal-->\\n  <div class=\"modal\" tabindex=\"-1\" role=\"dialog\" onLoad=\"init();\" id=\"modal\">\\n  <div class=\"modal-dialog\" role=\"document\">\\n    <div class=\"modal-content\">\\n      <div class=\"modal-header\">\\n        <h5 class=\"modal-title\">Exceed Yourself</h5>\\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\\n          <span aria-hidden=\"true\">&times;</span>\\n        </button>\\n      </div>\\n      <div class=\"modal-body\">\\n        <div class=\"content\">\\n          <div class=\"row\">\\n            <div class=\"col\">\\n                <img src=\"src/assets/img/prozis.jpeg\" />\\n            </div>\\n            <div class=\"col\">\\n                <p>A ball will start to bounce when you close this modal</p>\\n                <p>Hope you enjoy it!</p>\\n                <strong>Fernando Correia</strong>\\n            </div>\\n          </div>\\n        </div>\\n        \\n      </div>\\n      <div class=\"modal-footer\">\\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\\n      </div>\\n    </div>\\n  </div>\\n</div>\\n    <!--creating a dedicated area to our ball to bounce -->\\n    <canvas id=\"canvas\">\\n    <div id=\"bounce\"></div>\\n    <script type=\"text/javascript\">\\n      $(window).on(\\'load\\',function(){\\n          $(\\'#modal\\').modal(\\'show\\');\\n      });\\n    </script>\\n    <script src=\"./dist/js/bundle.js\"></script>\\n    </canvas>   \\n  </body>\\n</html>';\nreturn __p\n})();}}"
+          "source": "var _ = require(\"!!./node_modules/lodash/lodash.js\");module.exports = function (templateParams) { with(templateParams) {return (function(data) {\nvar __t, __p = '';\n__p += '<!DOCTYPE html>\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\\n    <title>Bouncing Ball</title>\\n    <meta name=\"description\" content=\"\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\\n    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js\"></script>\\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\">\\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"src/styles/styles.css\">\\n  </head>\\n  <body id=\"bounce\">\\n    <!--[if lt IE 7]>\\n      <p class=\"browsehappy\">You are using an <strong>outdated</strong> browser. Please <a href=\"#\">upgrade your browser</a> to improve your experience.</p>\\n    <![endif]-->\\n  \\n      <!--Bootstrap modal-->\\n      <div class=\"modal\" tabindex=\"-1\" role=\"dialog\" onLoad=\"init();\" id=\"modal\">\\n      <div class=\"modal-dialog\" role=\"document\">\\n        <div class=\"modal-content\">\\n          <div class=\"modal-header\">\\n            <h5 class=\"modal-title\">Exceed Yourself</h5>\\n            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\\n              <span aria-hidden=\"true\">&times;</span>\\n            </button>\\n          </div>\\n          <div class=\"modal-body\">\\n            <div class=\"content\">\\n              <div class=\"row\">\\n                <div class=\"col\">\\n                    <img src=\"src/assets/img/prozis.jpeg\" />\\n                </div>\\n                <div class=\"col\">\\n                    <p>A ball will start to bounce when you close this modal</p>\\n                    <p>Hope you enjoy it!</p>\\n                    <strong>Fernando Correia</strong>\\n                </div>\\n              </div>\\n            </div>\\n            \\n          </div>\\n          <div class=\"modal-footer\">\\n            <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\\n          </div>\\n        </div>\\n      </div>\\n    </div>\\n    <!--creating a dedicated area to our ball to bounce -->\\n    <canvas id=\"canvas\">\\n    <div id=\"bounce\"></div>\\n    </canvas>   \\n    <script type=\"text/javascript\">\\n      $(window).on(\\'load\\',function(){\\n          $(\\'#modal\\').modal(\\'show\\');\\n      });\\n    </script>\\n    <script src=\"./dist/js/bundle.js\"></script>\\n  </body>\\n</html>';\nreturn __p\n})();}}"
         },
         {
           "id": 1,
