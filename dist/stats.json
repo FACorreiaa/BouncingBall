@@ -4,9 +4,9 @@
   "warnings": [
   ],
   "version": "4.41.2",
-  "hash": "1b081b77753e22d40736",
-  "time": 1438,
-  "builtAt": 1575794893971,
+  "hash": "1cbc00b29b0068ae53d6",
+  "time": 1236,
+  "builtAt": 1575795379246,
   "publicPath": "",
   "outputPath": "/home/fernando/Documentos/Projects/Prozis_V4/dist",
   "assetsByChunkName": {
@@ -45,7 +45,7 @@
     },
     {
       "name": "index.html",
-      "size": 2446,
+      "size": 2516,
       "chunks": [
       ],
       "chunkNames": [
@@ -567,7 +567,7 @@
       "assets": [
         {
           "name": "index.html",
-          "size": 548075,
+          "size": 548146,
           "chunks": [
             0
           ],
@@ -613,13 +613,13 @@
           "rendered": true,
           "initial": true,
           "entry": true,
-          "size": 544124,
+          "size": 544195,
           "names": [
           ],
           "files": [
             "index.html"
           ],
-          "hash": "78b038ae91a40867f2c4",
+          "hash": "3ca5939172568e4ca4ab",
           "siblings": [
           ],
           "parents": [
@@ -635,7 +635,7 @@
               "name": "./node_modules/html-webpack-plugin/lib/loader.js!./index.html",
               "index": 0,
               "index2": 3,
-              "size": 2643,
+              "size": 2714,
               "cacheable": true,
               "built": true,
               "optional": false,
@@ -668,7 +668,7 @@
                 "ModuleConcatenation bailout: Module is not an ECMAScript module"
               ],
               "depth": 0,
-              "source": "var _ = require(\"!!./node_modules/lodash/lodash.js\");module.exports = function (templateParams) { with(templateParams) {return (function(data) {\nvar __t, __p = '';\n__p += '<!DOCTYPE html>\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\\n    <title>Bouncing Ball</title>\\n    <meta name=\"description\" content=\"\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\\n    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js\"></script>\\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\">\\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"src/styles/styles.css\">\\n  </head>\\n  <body id=\"bounce\">\\n    <!--[if lt IE 7]>\\n      <p class=\"browsehappy\">You are using an <strong>outdated</strong> browser. Please <a href=\"#\">upgrade your browser</a> to improve your experience.</p>\\n    <![endif]-->\\n  \\n      <!--Bootstrap modal-->\\n      <div class=\"modal\" tabindex=\"-1\" role=\"dialog\" onLoad=\"init();\" id=\"modal\">\\n      <div class=\"modal-dialog\" role=\"document\">\\n        <div class=\"modal-content\">\\n          <div class=\"modal-header\">\\n            <h5 class=\"modal-title\">Exceed Yourself</h5>\\n            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\\n              <span aria-hidden=\"true\">&times;</span>\\n            </button>\\n          </div>\\n          <div class=\"modal-body\">\\n            <div class=\"content\">\\n              <div class=\"row\">\\n                <div class=\"col\">\\n                    <img src=\"src/assets/img/prozis.jpeg\" />\\n                </div>\\n                <div class=\"col\">\\n                    <p>A ball will start to bounce when you close this modal</p>\\n                    <p>Hope you enjoy it!</p>\\n                    <strong>Fernando Correia</strong>\\n                </div>\\n              </div>\\n            </div>\\n            \\n          </div>\\n          <div class=\"modal-footer\">\\n            <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\\n          </div>\\n        </div>\\n      </div>\\n    </div>\\n    <!--creating a dedicated area to our ball to bounce -->\\n    <canvas id=\"canvas\">\\n    <div id=\"bounce\"></div>\\n    </canvas>   \\n    <script type=\"text/javascript\">\\n      $(window).on(\\'load\\',function(){\\n          $(\\'#modal\\').modal(\\'show\\');\\n      });\\n    </script>\\n    <script src=\"./dist/js/bundle.js\"></script>\\n  </body>\\n</html>';\nreturn __p\n})();}}"
+              "source": "var _ = require(\"!!./node_modules/lodash/lodash.js\");module.exports = function (templateParams) { with(templateParams) {return (function(data) {\nvar __t, __p = '';\n__p += '<!DOCTYPE html>\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\\n    <title>Bouncing Ball</title>\\n    <meta name=\"description\" content=\"\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\\n    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js\"></script>\\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\">\\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"src/styles/styles.css\">\\n  </head>\\n  <body id=\"bounce\">\\n    <!--[if lt IE 7]>\\n      <p class=\"browsehappy\">You are using an <strong>outdated</strong> browser. Please <a href=\"#\">upgrade your browser</a> to improve your experience.</p>\\n    <![endif]-->\\n  \\n      <!--Bootstrap modal-->\\n      <div class=\"modal\" tabindex=\"-1\" role=\"dialog\" onLoad=\"init();\" id=\"modal\">\\n      <div class=\"modal-dialog\" role=\"document\">\\n        <div class=\"modal-content\">\\n          <div class=\"modal-header\">\\n            <h5 class=\"modal-title\">Exceed Yourself</h5>\\n            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\\n              <span aria-hidden=\"true\">&times;</span>\\n            </button>\\n          </div>\\n          <div class=\"modal-body\">\\n            <div class=\"content\">\\n              <div class=\"row\">\\n                <div class=\"col\">\\n                    <img src=\"src/assets/img/prozis.jpeg\" />\\n                </div>\\n                <div class=\"col\">\\n                    <p>A ball will start to bounce when you close this modal</p>\\n                    <p>Click anywhere to start the ball to bounce</p>\\n                    <p>Hope you enjoy it!</p>\\n                    <strong>Fernando Correia</strong>\\n                </div>\\n              </div>\\n            </div>\\n            \\n          </div>\\n          <div class=\"modal-footer\">\\n            <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\\n          </div>\\n        </div>\\n      </div>\\n    </div>\\n    <!--creating a dedicated area to our ball to bounce -->\\n    <canvas id=\"canvas\">\\n    <div id=\"bounce\"></div>\\n    </canvas>   \\n    <script type=\"text/javascript\">\\n      $(window).on(\\'load\\',function(){\\n          $(\\'#modal\\').modal(\\'show\\');\\n      });\\n    </script>\\n    <script src=\"./dist/js/bundle.js\"></script>\\n  </body>\\n</html>';\nreturn __p\n})();}}"
             },
             {
               "id": 1,
@@ -846,7 +846,7 @@
           "name": "./node_modules/html-webpack-plugin/lib/loader.js!./index.html",
           "index": 0,
           "index2": 3,
-          "size": 2643,
+          "size": 2714,
           "cacheable": true,
           "built": true,
           "optional": false,
@@ -879,7 +879,7 @@
             "ModuleConcatenation bailout: Module is not an ECMAScript module"
           ],
           "depth": 0,
-          "source": "var _ = require(\"!!./node_modules/lodash/lodash.js\");module.exports = function (templateParams) { with(templateParams) {return (function(data) {\nvar __t, __p = '';\n__p += '<!DOCTYPE html>\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\\n    <title>Bouncing Ball</title>\\n    <meta name=\"description\" content=\"\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\\n    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js\"></script>\\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\">\\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"src/styles/styles.css\">\\n  </head>\\n  <body id=\"bounce\">\\n    <!--[if lt IE 7]>\\n      <p class=\"browsehappy\">You are using an <strong>outdated</strong> browser. Please <a href=\"#\">upgrade your browser</a> to improve your experience.</p>\\n    <![endif]-->\\n  \\n      <!--Bootstrap modal-->\\n      <div class=\"modal\" tabindex=\"-1\" role=\"dialog\" onLoad=\"init();\" id=\"modal\">\\n      <div class=\"modal-dialog\" role=\"document\">\\n        <div class=\"modal-content\">\\n          <div class=\"modal-header\">\\n            <h5 class=\"modal-title\">Exceed Yourself</h5>\\n            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\\n              <span aria-hidden=\"true\">&times;</span>\\n            </button>\\n          </div>\\n          <div class=\"modal-body\">\\n            <div class=\"content\">\\n              <div class=\"row\">\\n                <div class=\"col\">\\n                    <img src=\"src/assets/img/prozis.jpeg\" />\\n                </div>\\n                <div class=\"col\">\\n                    <p>A ball will start to bounce when you close this modal</p>\\n                    <p>Hope you enjoy it!</p>\\n                    <strong>Fernando Correia</strong>\\n                </div>\\n              </div>\\n            </div>\\n            \\n          </div>\\n          <div class=\"modal-footer\">\\n            <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\\n          </div>\\n        </div>\\n      </div>\\n    </div>\\n    <!--creating a dedicated area to our ball to bounce -->\\n    <canvas id=\"canvas\">\\n    <div id=\"bounce\"></div>\\n    </canvas>   \\n    <script type=\"text/javascript\">\\n      $(window).on(\\'load\\',function(){\\n          $(\\'#modal\\').modal(\\'show\\');\\n      });\\n    </script>\\n    <script src=\"./dist/js/bundle.js\"></script>\\n  </body>\\n</html>';\nreturn __p\n})();}}"
+          "source": "var _ = require(\"!!./node_modules/lodash/lodash.js\");module.exports = function (templateParams) { with(templateParams) {return (function(data) {\nvar __t, __p = '';\n__p += '<!DOCTYPE html>\\n  <head>\\n    <meta charset=\"utf-8\">\\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\\n    <title>Bouncing Ball</title>\\n    <meta name=\"description\" content=\"\">\\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\\n    <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js\"></script>\\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\">\\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"src/styles/styles.css\">\\n  </head>\\n  <body id=\"bounce\">\\n    <!--[if lt IE 7]>\\n      <p class=\"browsehappy\">You are using an <strong>outdated</strong> browser. Please <a href=\"#\">upgrade your browser</a> to improve your experience.</p>\\n    <![endif]-->\\n  \\n      <!--Bootstrap modal-->\\n      <div class=\"modal\" tabindex=\"-1\" role=\"dialog\" onLoad=\"init();\" id=\"modal\">\\n      <div class=\"modal-dialog\" role=\"document\">\\n        <div class=\"modal-content\">\\n          <div class=\"modal-header\">\\n            <h5 class=\"modal-title\">Exceed Yourself</h5>\\n            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\\n              <span aria-hidden=\"true\">&times;</span>\\n            </button>\\n          </div>\\n          <div class=\"modal-body\">\\n            <div class=\"content\">\\n              <div class=\"row\">\\n                <div class=\"col\">\\n                    <img src=\"src/assets/img/prozis.jpeg\" />\\n                </div>\\n                <div class=\"col\">\\n                    <p>A ball will start to bounce when you close this modal</p>\\n                    <p>Click anywhere to start the ball to bounce</p>\\n                    <p>Hope you enjoy it!</p>\\n                    <strong>Fernando Correia</strong>\\n                </div>\\n              </div>\\n            </div>\\n            \\n          </div>\\n          <div class=\"modal-footer\">\\n            <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\\n          </div>\\n        </div>\\n      </div>\\n    </div>\\n    <!--creating a dedicated area to our ball to bounce -->\\n    <canvas id=\"canvas\">\\n    <div id=\"bounce\"></div>\\n    </canvas>   \\n    <script type=\"text/javascript\">\\n      $(window).on(\\'load\\',function(){\\n          $(\\'#modal\\').modal(\\'show\\');\\n      });\\n    </script>\\n    <script src=\"./dist/js/bundle.js\"></script>\\n  </body>\\n</html>';\nreturn __p\n})();}}"
         },
         {
           "id": 1,
