@@ -1,7 +1,11 @@
 import { Ball } from './Ball';
 import { minusOne } from '../utils/constants';
 export class Root {
-  //root properties
+  /**
+   * Root class properties
+   * To draw the canvas and overload
+   * the canvas while the ball is moving
+   */
   protected canvas: HTMLCanvasElement;
   protected backgroundColor: string = '#faf4b4';
   protected static readonly speedDecrease: number = 0.1; //ten percent less speed
@@ -29,6 +33,7 @@ export class Root {
 
   start(): void {
     this.updateBall();
+    //https://developer.mozilla.org/pt-BR/docs/Web/API/Window/requestAnimationFrame
     requestAnimationFrame(() => this.start());
   }
 
